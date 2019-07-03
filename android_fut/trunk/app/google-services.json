@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "86626524745",
+    "firebase_url": "https://futebol-5828e.firebaseio.com",
+    "project_id": "futebol-5828e",
+    "storage_bucket": "futebol-5828e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86626524745:android:c9dd7deb9bbb7969",
+        "android_client_info": {
+          "package_name": "com.example.futebol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "86626524745-5cctkpmkf8rm8e6asbicr5p0aniek9kf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.futebol",
+            "certificate_hash": "c635e2b1bbb40054cef012314694c3b35f2f4a16"
+          }
+        },
+        {
+          "client_id": "86626524745-8jb33ep6rpc95l2ihns8afi3lgbdupcj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPV8UiyGoYTDrOkN-CbEDFQhMKlwJXXHU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "86626524745-8jb33ep6rpc95l2ihns8afi3lgbdupcj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
