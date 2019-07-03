@@ -19,6 +19,7 @@ public class AddJogadorNoTime extends AppCompatActivity {
     private EditText cpfJogador;
     private EditText numeroCamisa;
     private EditText senhaconf;
+    private String   cpf;
     SqlConnect connect = new SqlConnect();
 
     @Override
@@ -29,13 +30,16 @@ public class AddJogadorNoTime extends AppCompatActivity {
         nmJogador       =   findViewById(R.id.editText);
         cpfJogador      =   findViewById(R.id.editText3);
         numeroCamisa    =   findViewById(R.id.editText4);
-        senhaconf       =   findViewById(R.id.editText2);
+
     }
+
 
     public void AddJogadorNoTime(View view){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+        NaoTenhoConta naoTenhoConta = new NaoTenhoConta();
+        cpf = naoTenhoConta.getCpfStrig();
 
-        db.collection("Treinador").whereEqualTo("NEWPASSWORD",senhaconf.getText().toString())
+        db.collection("Treinador").whereEqualTo("CPF",cpf)
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override

@@ -32,7 +32,6 @@ public class ListaJogador extends AppCompatActivity {
         NaoTenhoConta naoTenhoConta = new NaoTenhoConta();
         cpf = naoTenhoConta.getCpfStrig();
 
-        Log.i("aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiii ", cpf);
         if(cpf!=null) {
             db.collection("Jogador").whereEqualTo("CPFLEADER",cpf)
                     .get()
@@ -43,7 +42,6 @@ public class ListaJogador extends AppCompatActivity {
 
                                 List<String> list = new ArrayList<>();
                                 for (QueryDocumentSnapshot document : task.getResult()) {
-                                    Log.d("->1", document.getId() + " => " + document.getData());
                                     String cpf = (String) document.getData().get("NAMEPLAYER");
                                     list.add(cpf);
                                 }
@@ -64,17 +62,11 @@ public class ListaJogador extends AppCompatActivity {
 
                                 listview.setAdapter(adapter);
 
-                                Log.i("-> -> ->",list.get(0));
-
                             } else {
                                 Log.w("->>", "Error getting documents.", task.getException());
                             }
                         }
                     });
         }
-    }
-
-    protected  void lista(){
-
     }
 }
