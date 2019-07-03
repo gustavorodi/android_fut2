@@ -35,6 +35,14 @@ public class TelaPrincipal extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void iniciarPartida(View view){
+
+        Intent intent = new Intent(this, BuscarJogador.class);
+        startActivity(intent);
+    }
+
+
+
 
 
 }
