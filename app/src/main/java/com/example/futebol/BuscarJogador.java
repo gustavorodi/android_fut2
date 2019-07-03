@@ -15,10 +15,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.Random;
+
 public class BuscarJogador extends AppCompatActivity {
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    Random gerador = new Random();
     private String cpf;
     private TextView quem;
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
+
 
 
     @Override
@@ -38,7 +42,7 @@ public class BuscarJogador extends AppCompatActivity {
             cpf = tenhoConta.getUsuStrig();
         }
 
-        db.collection("Treinador").limit(1).orderBy("CPF")
+        db.collection("Treinador").limit(1).orderBy(ordernar())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -46,9 +50,9 @@ public class BuscarJogador extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             String rival;
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d("aquiii", "DocumentSnapshot added with ID: " + document.getId());
+                                Log.d("aquiii", "DocumentSnapshot added with ID: " + document.getData().get("CPF"));
 
-                                rival = (String) document.getData().get("NAMEPLAYER");
+                                rival = String.valueOf(document.getData().get("TIMENAME"));
                                 quem.setText("Seu rival vai ser : \n ->" +rival);
                             }
 
@@ -58,6 +62,19 @@ public class BuscarJogador extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private String ordernar(){
+       Integer x = gerador.nextInt(100);
+       String  y;
+        if (x >= 20 && x <= 50){
+            y = "CPF";
+        }else if(x > 50 && x <= 80 ){
+            y = "ID";
+        }else{
+            y = "NEWPASSWORD";
+        }
+        return y;
     }
 
     public void Voltar(View view){
