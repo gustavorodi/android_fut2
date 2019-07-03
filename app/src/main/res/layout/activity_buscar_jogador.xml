@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFCC1F"
     tools:context=".BuscarJogador">
 
     <Button
@@ -13,6 +14,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="188dp"
         android:layout_marginEnd="8dp"
+        android:background="#16CC09"
         android:onClick="buscar"
         android:text="Sim"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,6 +29,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="172dp"
         android:layout_marginEnd="8dp"
+        android:background="#16CC09"
+        android:onClick="Voltar"
         android:text="Não"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -35,16 +39,17 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="186dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="180dp"
+        android:layout_marginBottom="140dp"
         android:textColor="@android:color/black"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView

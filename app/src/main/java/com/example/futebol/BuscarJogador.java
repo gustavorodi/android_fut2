@@ -1,5 +1,6 @@
 package com.example.futebol;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,7 +32,11 @@ public class BuscarJogador extends AppCompatActivity {
 
     public void buscar(View view){
         NaoTenhoConta naoTenhoConta = new NaoTenhoConta();
+        TenhoConta tenhoConta = new TenhoConta();
         cpf = naoTenhoConta.getCpfStrig();
+        if (cpf.isEmpty()){
+            cpf = tenhoConta.getUsuStrig();
+        }
 
         db.collection("Treinador").limit(1).orderBy("CPF")
                 .get()
@@ -41,7 +46,9 @@ public class BuscarJogador extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             String rival;
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                 rival = (String) document.getData().get("NAMEPLAYER");
+                                Log.d("aquiii", "DocumentSnapshot added with ID: " + document.getId());
+
+                                rival = (String) document.getData().get("NAMEPLAYER");
                                 quem.setText("Seu rival vai ser : \n ->" +rival);
                             }
 
@@ -51,6 +58,12 @@ public class BuscarJogador extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    public void Voltar(View view){
+
+        Intent intent = new Intent(this, TelaPrincipal.class);
+        startActivity(intent);
     }
 
 }

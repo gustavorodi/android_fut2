@@ -76,7 +76,7 @@
         android:layout_marginBottom="140dp"
         android:background="#16CC09"
         android:onClick="AddJogadorNoTime"
-        android:text="Adicionar jogar ao time"
+        android:text="Adicionar jogador ao time"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

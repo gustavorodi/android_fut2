@@ -22,6 +22,7 @@ public class TenhoConta extends AppCompatActivity {
     private Button   validar;
     private Integer  escolha;
     private RadioGroup groups;
+    public static String UsuStrig;
 
     SqlConnect connect = new SqlConnect();
 
@@ -70,9 +71,13 @@ public class TenhoConta extends AppCompatActivity {
     public void novoUsuarioPronto(View view){
 
         connect.addTreinador(nmTreinador.getText().toString(), cpfTreinador.getText().toString(), novaSenha.getText().toString(), nmTime.getText().toString(), escolha);
-
+        UsuStrig = cpfTreinador.getText().toString();
         Intent intent = new Intent(this, TelaPrincipal.class);
         startActivity(intent);
+    }
+
+    public String getUsuStrig() {
+        return UsuStrig;
     }
 
 }

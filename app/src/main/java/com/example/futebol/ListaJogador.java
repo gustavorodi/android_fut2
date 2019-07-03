@@ -29,8 +29,13 @@ public class ListaJogador extends AppCompatActivity {
 
         listview    =   findViewById(R.id.list);
 
+
         NaoTenhoConta naoTenhoConta = new NaoTenhoConta();
+        TenhoConta tenhoConta = new TenhoConta();
         cpf = naoTenhoConta.getCpfStrig();
+        if (cpf.isEmpty()){
+            cpf = tenhoConta.getUsuStrig();
+        }
 
         if(cpf!=null) {
             db.collection("Jogador").whereEqualTo("CPFLEADER",cpf)

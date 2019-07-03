@@ -37,7 +37,11 @@ public class AddJogadorNoTime extends AppCompatActivity {
     public void AddJogadorNoTime(View view){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         NaoTenhoConta naoTenhoConta = new NaoTenhoConta();
+        TenhoConta tenhoConta = new TenhoConta();
         cpf = naoTenhoConta.getCpfStrig();
+        if (cpf.isEmpty()){
+            cpf = tenhoConta.getUsuStrig();
+        }
 
         db.collection("Treinador").whereEqualTo("CPF",cpf)
                     .get()
